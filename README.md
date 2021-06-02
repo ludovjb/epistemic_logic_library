@@ -1,4 +1,4 @@
-# Library for raisoning about knowledge using epistemic modal logic and Kripke models.
+### Library for raisoning about knowledge using epistemic modal logic and Kripke models
 
 To run the library : 
 * `ant run_muddy` to run the **Muddy Children** problem
