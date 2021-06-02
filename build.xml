@@ -1,0 +1,48 @@
+<!-- Script de compilation -->
+<project name="epistemique_librairie" default="compile" basedir=".">
+
+	<!-- Proprietes. -->
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+
+	<!-- Compilation des sources. -->
+	<target name="compile" description="Compiler le projet">
+		<mkdir dir="${build}"/>
+		<javac srcdir="${src}" destdir="${build}" includeAntRuntime="no" encoding="UTF-8" source="1.8"/>
+	</target>
+
+	<!-- Nettoyage. -->
+	<target name="clean" description="Nettoyer le dossier build">
+		<delete dir="${build}"/>
+	</target>
+
+	<!-- Execution de MuddyChildren. -->
+	<target name="run_muddy" depends="compile" description="Lancer le problème des 'Muddy Children'">
+		<input addProperty="N" message="Muddy Children : indiquez le nombre d'enfants total :"/>
+		<input addProperty="K" message="Muddy Children : indiquez le nombre d'enfants sales :"/>
+		<java classname="epistemique.exemples.MuddyChildren" classpath="${build}">
+			<arg line="${N} ${K}"/>
+		</java>
+	</target>
+			
+	<!-- Execution de PileOuFace. -->
+	<target name="run_pileface" depends="compile" description="Lancer le problème 'Pile ou Face'">
+		<java classname="epistemique.exemples.PileOuFace" classpath="${build}" />
+	</target>
+
+	<!-- Execution de PNotP. -->
+	<target name="run_pnotp" depends="compile" description="Lancer le problème 'P ou Non P'">
+		<java classname="epistemique.exemples.PNotP" classpath="${build}" />
+	</target>
+
+	<!-- Execution de SumAndProduct. -->
+	<target name="run_sumproduct" depends="compile" description="Lancer le problème 'Sum and Product' (long)">
+		<java classname="epistemique.exemples.SumAndProduct" classpath="${build}" />
+	</target>
+
+	<!-- Execution de SumAndProductRapide. -->
+	<target name="run_sumproductrapide" depends="compile" description="Lancer le problème 'Sum and Product' (rapide)">
+		<java classname="epistemique.exemples.SumAndProductRapide" classpath="${build}" />
+	</target>
+
+</project>
